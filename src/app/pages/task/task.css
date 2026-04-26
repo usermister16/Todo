@@ -1,0 +1,53 @@
+
+/* Style de base cohérent pour la page de tâches */
+.task-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--color-surface, #fff);
+  border-radius: var(--border-radius, 0.5rem);
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(30,41,59,0.06);
+  max-width: 600px;
+  margin: 2rem auto;
+
+  /* allow the document (body) to handle scrolling to avoid nested scrollbars */
+  /* remove max-height/overflow to prevent a second scrollbar */
+}
+
+/* Controls (header + form) — sticky */
+.task-controls {
+  position: sticky;
+  top: 0.5rem; /* small offset from viewport top */
+  z-index: 30;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95));
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: calc(var(--border-radius) - 0.125rem);
+  /* subtle separator when sticky */
+  box-shadow: 0 6px 16px rgba(2,6,23,0.03);
+  transition: box-shadow 180ms ease, transform 180ms ease, background 180ms ease;
+  will-change: transform, box-shadow, background;
+}
+
+.task-controls--stuck {
+  /* stronger shadow + gentle lift + slight scale to emphasize the fixed state */
+  box-shadow: 0 20px 60px rgba(2,6,23,0.18);
+  transform: translateY(-4px) scale(1.007);
+  background: linear-gradient(180deg, rgba(255,255,255,1), rgba(249,250,251,1));
+  border-bottom: 1px solid rgba(2,6,23,0.04);
+  backdrop-filter: saturate(1.05) blur(4px);
+}
+
+/* Task list becomes the scrollable content inside the page */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 520px) {
+  .task-page { max-height: calc(100vh - 2.5rem); padding: 1rem; }
+  .task-controls { top: 0.5rem; }
+}

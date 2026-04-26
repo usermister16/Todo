@@ -1,0 +1,22 @@
+<form class="task-form" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <div class="task-form__field">
+    <label for="title">Titre</label>
+    <input class="task-form__input" type="text" formControlName="title" id="title" placeholder="Titre de la tâche" />
+  </div>
+
+  <div class="task-form__field">
+    <label for="description">Description</label>
+    <textarea class="task-form__textarea" formControlName="description" id="description" placeholder="Description de la tâche"></textarea>
+  </div>
+
+  @if (is_edit_mode()) {
+  <div class="task-form__field task-form__field--inline">
+    <label for="status">{{currentTask()?.completed ? "Terminée" : "En attente"}}</label>
+    <input class="task-form__checkbox" type="checkbox" formControlName="completed" id="status" />
+  </div>
+  }
+
+  <div class="task-form__actions">
+    <button class="btn btn--primary" type="submit">Ajouter une tâche</button>
+  </div>
+</form>

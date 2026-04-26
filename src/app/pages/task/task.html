@@ -1,0 +1,12 @@
+<div class="task-page">
+  <div class="task-controls" [class.task-controls--stuck]="isSticky()">
+    <task-header [completedTasksCount]="completedTasksCount()" [totalTasksCount]="totalTasksCount()"></task-header>
+    <app-task-form [currentTask]="selectedTask()" [is_edit_mode]="isEditMode()" (saved)="onTaskSaved($event)"></app-task-form>
+  </div>
+
+  <div class="task-list">
+    @for(task of tasks(); track task.id) {
+      <app-task-item [task]="task" (edit)="onEditTask($event)" (delete)="onDeleteTask($event)"></app-task-item>
+    }
+  </div>
+</div>

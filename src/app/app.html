@@ -1,0 +1,29 @@
+<header class="app-bar" [class.app-bar--scrolled]="isScrolled()">
+  <div class="app-bar__inner">
+    <div class="app-bar__brand">Todo List</div>
+    <nav class="app-bar__nav">
+      <a routerLink="/tasks" class="btn btn--ghost">Tâches</a>
+      <a routerLink="/login" class="btn btn--ghost">Connexion</a>
+    </nav>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="app-sidebar" aria-label="Navigation">
+    <nav>
+      <ul>
+        <li><a routerLink="/tasks">Mes tâches</a></li>
+        <li><a routerLink="/login">Se connecter</a></li>
+        <li><a routerLink="/register">S'inscrire</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="app-main">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+<!-- Global UI helpers -->
+<app-toasts></app-toasts>
+<app-confirm-dialog></app-confirm-dialog>

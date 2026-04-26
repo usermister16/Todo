@@ -1,0 +1,21 @@
+<form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="auth-brand">
+    <h1>Connexion</h1>
+    <p class="muted">Bienvenue — connectez-vous pour voir vos tâches</p>
+  </div>
+
+  <div class="auth-field">
+    <label class="visually-hidden" for="username">Adresse e-mail</label>
+    <input class="auth-input" formControlName="username" type="text" id="username" name="username" placeholder="Adresse e-mail" aria-label="Adresse e-mail">
+  </div>
+
+  <div class="auth-field">
+    <label class="visually-hidden" for="password">Mot de passe</label>
+    <input class="auth-input" formControlName="password" type="password" id="password" name="password" placeholder="Mot de passe" aria-label="Mot de passe">
+  </div>
+
+  <div class="login-form__actions">
+    <button class="btn btn--primary" type="submit">Se connecter</button>
+  </div>
+</form>
+
