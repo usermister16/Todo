@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Login } from './pages/auth/login/login';
+import { connexionGuard } from './connexion-guard';
 
 export const routes: Routes = [
     {
@@ -13,7 +14,8 @@ export const routes: Routes = [
     },
     {
         path: 'tasks',
-        loadComponent: () => import('./pages/task/task').then(m => m.TaskComponent)
+        loadComponent: () => import('./pages/task/task').then(m => m.TaskComponent),
+        canActivate: [connexionGuard]
     },
     {
         path: '',
